@@ -10,9 +10,28 @@
         <link type="text/css" rel="stylesheet" href="./main.css">
     </head>
     <body>
-        <section id="grid-holder">
-
+        <section id="tool-bar">
+            <ul id="tool-wraper">
+                <li>
+                    <select name="Brush">
+                        <option value="Pen" selected>Pen</option>
+                        <option value="Air Brush">Air Brush</option>
+                        <option value="Magic Pencil">Magic Pencil</option>
+                        <option value="Negativator">Negativator</option>
+                        <option value="Eraser">Eraser</option>
+                    </select>
+                </li>
+                <li>
+                    <ul>
+                        <li><input type="radio" name="grid" value="Grid On">Grid On</li>
+                        <li><input type="radio" name="grid" value="Grid Off">Grid Off</li>
+                    </ul>
+                </li>
+                <li><button>Clear</button></li>
+                <li><button>Change Grid</button></li>
+            </ul>
         </section>
+        <section id="grid-holder"></section>
         <script type="text/javascript" src="./script.js"></script>
     </body>
 </html>

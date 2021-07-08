@@ -19,6 +19,8 @@ for (i = 0; i < (celNumber*celNumber); i++) {
 Will try now to use a grid and place the divs inside each grid cel
 
 */
+const body = document.querySelector("body");
+
 
 const gridHolder = document.querySelector("#grid-holder");
 
@@ -34,20 +36,26 @@ function createGrid(gridHolder, gridSize) {
         gridSize = 10;
 
         console.log("gridSize after treating: ",typeof(gridSize), gridSize);
+    } else if(gridSize > 100) {
+        gridSize = 100;
+        alert("Grid cannot be greater than 100 cels, sorry!");
     }
 
     const gridDiv = document.createElement("div");
-    gridDiv.style.cssText =`height: 100%; width: 100%; box-sizing: border-box; border-top: 1px solid grey; border-left: 1px solid black; display: grid; grid-template-rows: repeat(${gridSize} 1fr); 
+    gridDiv.style.cssText =`height: 100%; width: 100%; box-sizing: border-box; border-top: 1px solid grey; border-left: 1px solid gray; display: grid; grid-template-rows: repeat(${gridSize} 1fr); 
         grid-template-columns: repeat(${gridSize} 1fr);`;
     gridHolder.appendChild(gridDiv);
 
     for(i = 0; i < gridSize; i++) {
         for(j = 0; j < gridSize; j++) {
             const gridCell= document.createElement("div");
-            gridCell.style.cssText =`box-sizing: border-box; grid-area: ${i+1}/${j+1};border-bottom: 1px solid grey;border-right: 1px solid black; background-color: white`;
+            gridCell.setAttribute("class", "clear-cell");
+            gridCell.style["grid-area"] =`${i+1}/${j+1}`;
             gridDiv.appendChild(gridCell);
 
             gridCell.addEventListener("mouseenter", e => {
+                gridCell.removeAttribute("class");
+                gridCell.setAttribute("class", "painted-cell");
                 gridCell.style["background-color"] = "black";
             });
         }

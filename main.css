@@ -9,9 +9,35 @@ body {
     background-color: aqua;
 }
 
+#tool-bar {
+    grid-row: 1/2;
+    grid-column: 1/4;
+}
+
+#tool-wraper {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
 #grid-holder {
     grid-row: 2/3;
     grid-column: 2/3;
 
     background-color: brown;
+}
+
+.clear-cell {
+    box-sizing: border-box;
+    border-bottom: 1px solid grey;
+    border-right: 1px solid gray; 
+    background-color: white;
+}
+
+.painted-cell {
+    box-sizing: border-box;
+    border-bottom: 1px solid grey;
+    border-right: 1px solid gray; 
 }
