@@ -3,8 +3,8 @@ body {
     width: 100%;
 
     display: grid;
-    grid-template-rows: 1fr 500px 1fr;
-    grid-template-columns: 1fr 500px 1fr;
+    grid-template-rows: 1fr 600px 1fr;
+    grid-template-columns: 1fr 600px 1fr;
 
     background-color: aqua;
 }
@@ -26,17 +26,19 @@ body {
     grid-row: 2/3;
     grid-column: 2/3;
 
+    box-sizing: border-box;
+    border-top: 1px solid grey;
+    border-left: 1px solid gray;
+    
+    display: grid;
+
+    height: 100%;
+    width: 100%;
+
     background-color: brown;
 }
 
-.clear-cell {
-    box-sizing: border-box;
-    border-bottom: 1px solid grey;
-    border-right: 1px solid gray; 
-    background-color: white;
-}
-
-.painted-cell {
+.cell {
     box-sizing: border-box;
     border-bottom: 1px solid grey;
     border-right: 1px solid gray; 

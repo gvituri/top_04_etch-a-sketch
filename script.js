@@ -19,10 +19,9 @@ for (i = 0; i < (celNumber*celNumber); i++) {
 Will try now to use a grid and place the divs inside each grid cel
 
 */
-const body = document.querySelector("body");
-
-
 const gridHolder = document.querySelector("#grid-holder");
+const clearBtn = document.querySelector("#clear-btn");
+const gridBtn = document.querySelector("#grid-btn");
 
 let gridSize = prompt("Please Enter de grid size value:");
 console.log("gridSize received: ",typeof(gridSize), gridSize);
@@ -46,6 +45,14 @@ function createGrid(gridHolder, gridSize) {
         grid-template-columns: repeat(${gridSize} 1fr);`;
     gridHolder.appendChild(gridDiv);
 
+    gridBtn.addEventListener("click", e => {
+        gridHolder.removeChild(gridDiv);
+        //gridDiv = null;
+        let gridSize = prompt("Please Enter de grid size value:");
+        console.log("gridSize received: ",typeof(gridSize), gridSize);
+        createGrid(gridHolder, Number(gridSize));
+    })    
+
     for(i = 0; i < gridSize; i++) {
         for(j = 0; j < gridSize; j++) {
             const gridCell= document.createElement("div");
@@ -58,9 +65,17 @@ function createGrid(gridHolder, gridSize) {
                 gridCell.setAttribute("class", "painted-cell");
                 gridCell.style["background-color"] = "black";
             });
+
+            clearBtn.addEventListener("click", e => {
+                gridCell.removeAttribute("class");
+                gridCell.setAttribute("class", "clear-cell");
+                gridCell.style["background-color"] = "white";
+            });
         }
     }
 }
+
+
 
 
 
