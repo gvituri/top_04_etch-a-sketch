@@ -15,7 +15,8 @@
                 <li>
                     <select id="brush-select" name="brush">
                         <option value="pen" selected>Pen</option>
-                        <option value="air-brush">Air Brush</option>
+                        <option value="shadow-air-brush">Shadow Air Brush</option>
+                        <option value="light-air-brush">Light Air Brush</option>
                         <option value="magic-pencil">Magic Pencil</option>
                         <option value="negativator">Negativator</option>
                         <option value="eraser">Eraser</option>
@@ -28,11 +29,11 @@
                     </ul>
                 </li>
                 <li><button id="clear-btn">Clear</button></li>
-                <li><button id="grid-btn">Change Grid</button></li>
+                <li><button id="resize-grid-btn">Change Grid</button></li>
             </ul>
         </section>
-        <section id="grid-holder">
-        </section>
-        <script type="text/javascript" src="./app.js"></script>
+        <section id="grid-holder"></section>
+        <div id="cell-pool"></div>
     </body>
+    <script type="text/javascript" src="./app.js"></script>
 </html>

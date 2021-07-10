@@ -38,8 +38,16 @@ body {
     background-color: brown;
 }
 
-.cell {
+.unused-cell {
+    display: none;
+}
+
+.used-cell {
     box-sizing: border-box;
     border-bottom: 1px solid grey;
     border-right: 1px solid gray; 
+}
+
+#cell-pool {
+    display: none;
 }
