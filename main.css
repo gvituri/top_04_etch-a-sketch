@@ -27,8 +27,6 @@ body {
     grid-column: 2/3;
 
     box-sizing: border-box;
-    border-top: 1px solid grey;
-    border-left: 1px solid gray;
     
     display: grid;
 
@@ -44,8 +42,6 @@ body {
 
 .used-cell {
     box-sizing: border-box;
-    border-bottom: 1px solid grey;
-    border-right: 1px solid gray; 
 }
 
 #cell-pool {

@@ -3,11 +3,19 @@ const brushSelect = document.querySelector("#brush-select");
 const clearButton = document.querySelector("#clear-btn");
 const resizeGridButton = document.querySelector("#resize-grid-btn");
 const cellPool = document.querySelector("#cell-pool");
+const gridControl = document.getElementsByName("grid-control");
+
+for(let i = 0; i < gridControl.length; i++) {
+    gridControl[i].onclick = setGridState;
+}
+
+gridControl.onclick = setGridState;
 
 createCells();
 createGrid(gridHolder);
 clearButton.onclick = clearGrid;
 resizeGridButton.onclick = resizeGrid;
+
 
 function createCells(){
     for(j = 0; j < 10000; j++) {
@@ -41,6 +49,8 @@ function createGrid(gridHolder) {
             });
         }
     }
+
+    setGridState();
 }
 
 function clearGrid() {
@@ -130,4 +140,36 @@ function paintCell() {
     const newCellColor = "rgb(" + r + "," + g + "," + b + ")";
     currentCell.style["background-color"] = newCellColor;   
     currentCell.removeAttribute("id");
+}
+
+function setGridState() {
+
+    let gridState = "";
+
+    for (let i = 0; i < gridControl.length; i++) {
+        if(gridControl[i].checked){
+            gridState = gridControl[i].value;
+            break;
+        }
+    }
+
+    const allCells = Array.from(document.querySelectorAll(".used-cell"));
+
+    if(gridState == "grid-off"){
+        allCells.forEach(cell => {
+            cell.style["border-right"] = "none";
+            cell.style["border-bottom"] = "none";
+        });
+
+        gridHolder.style["border-left"] = "none";
+        gridHolder.style["border-top"] = "none";
+    }else if (gridState == "grid-on") {
+        allCells.forEach(cell => {
+            cell.style["border-right"] = "1px solid gray";
+            cell.style["border-bottom"] = "1px solid gray";
+        });
+
+        gridHolder.style["border-left"] = "1px solid gray";
+        gridHolder.style["border-top"] = "1px solid gray";
+    }
 }
