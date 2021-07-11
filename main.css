@@ -6,7 +6,7 @@ body {
     grid-template-rows: 1fr 600px 1fr;
     grid-template-columns: 1fr 600px 1fr;
 
-    background-color: aqua;
+    background-color: lightcoral;
 }
 
 #tool-bar {
@@ -33,7 +33,7 @@ body {
     height: 100%;
     width: 100%;
 
-    background-color: brown;
+    background-color: white;
 }
 
 .unused-cell {

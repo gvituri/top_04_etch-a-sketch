@@ -5,16 +5,13 @@ const resizeGridButton = document.querySelector("#resize-grid-btn");
 const cellPool = document.querySelector("#cell-pool");
 const gridControl = document.getElementsByName("grid-control");
 
-for(let i = 0; i < gridControl.length; i++) {
-    gridControl[i].onclick = setGridState;
-}
-
-gridControl.onclick = setGridState;
-
 createCells();
 createGrid(gridHolder);
 clearButton.onclick = clearGrid;
 resizeGridButton.onclick = resizeGrid;
+for(let i = 0; i < gridControl.length; i++) {
+    gridControl[i].onclick = setGridState;
+}
 
 
 function createCells(){
